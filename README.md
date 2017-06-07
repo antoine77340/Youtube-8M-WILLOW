@@ -16,6 +16,7 @@ However for the sake of simplicity, this repot will contain a much more simple e
 7 models that is enough to reach the first place with a significant margin (GAP ~ 84.7%)
 
 
+## Training the single models
 
 
 
