@@ -12,8 +12,9 @@ do not fit with a GPU with at least 10GB of memory. In that case, please do not 
 of these models as it might affect the final results.
 
 Our best submitted model (GAP: 0.84967% on the private leaderboard) is a weighted ensemble of 25 models.
-However for the sake of simplicity, this repot will contain a much more simple ensemble of 
-7 models that is enough to reach the first place with a significant margin (GAP ~ 84.7%)
+However for the sake of simplicity, we present a much more simple ensemble of 
+7 models that is enough to reach the first place with a significant margin (GAP ~ 84.7%). The 25 models trained
+are only some very similar variant (of hyper-parameter) of these seven main models. 
 
 Please note that because of the time constraint, we did not have time to try to run the code from scratch.
 It might be possible, but rather unlikely, that something is not working properly. If so please contact me.
@@ -22,7 +23,10 @@ It might be possible, but rather unlikely, that something is not working properl
 
 Each of the following command lines train a single model. They are scheduled to stop training at the good time.
 
-Our model were trained on all the training set and almost all the validation set (we only discarded 21k videos). We will however, train the models on all both training and validation set as it was allowed in the kaggle competition. It should not make any huge difference.
+Our model were trained on all the training set and almost all the validation set. 
+We only discarded 21k videos for a smaller validatin set.
+This validation set (used in the arXiv paper) is composed of all the tensorflow record file of the form: 'validatea*.tfrecord'. 
+We will however, train the models on all both training and validation set as it was allowed in the kaggle competition. It should not make any huge difference.
 
 Each model takes several days to train, so each command line are separated in order to be run in parallel if possible. 
 Please replace 'path_to_features' with the folder path which contains all the tensorflow record frame level feature.
@@ -57,7 +61,7 @@ Training Soft-Dbof (8000 Clusters):
 python train.py --train_data_pattern='$path_to_features/*a*??.tfrecord' --model=SoftDbofModelLF --train_dir=softdboflf-8000-1024-80-0002-300iter --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=80 --base_learning_rate=0.0002 --dbof_cluster_size=8000 --dbof_hidden_size=1024 --iterations=300 --dbof_relu=False --max_step=800000
 ```
 
-Training Gated RVLAD (256 Clusters):
+Training Gated NetRVLAD (256 Clusters):
 
 ```sh
 python train.py --train_data_pattern='$path_to_features/*a*??.tfrecord' --model=NetVLADModelLF --train_dir=gatedlightvladLF-256k-1024-80-0002-300iter-norelu-basic-gatedmoe --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=80 --base_learning_rate=0.0002 --netvlad_cluster_size=256 --netvlad_hidden_size=1024 --moe_l2=1e-6 --iterations=300 --learning_rate_decay=0.8 --netvlad_relu=False --gating=True --moe_prob_gating=True --lightvlad=True --max_step=600000
