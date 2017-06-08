@@ -1,5 +1,5 @@
 # Youtube-8M-WILLOW
-This is the solution of the kaggle Youtube-8M Large-Scale Video Understanding challenge winners.
+This is the solution of the kaggle Youtube-8M Large-Scale Video Understanding challenge winners (https://www.kaggle.com/c/youtube8m).
 For more details about our models,  please read our arXiv paper: ... .
 
 The code is built on top of the Google Youtube-8M starter code (https://github.com/google/youtube-8m)
