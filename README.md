@@ -23,6 +23,7 @@ It might be possible, but rather unlikely, that something is not working properl
 Each of the following command lines train a single model. They are scheduled to stop training at the good time.
 
 For the rest of the operations, please replace 'path_to_features' with the folder path which contains all the tensorflow record frame level feature.
+Our model were trained on all the training set and almost all the validation set (we only discarded 21k videos). We will however, train the models on all both training and validation set as it was allowed in the kaggle competition. It should not make any huge difference
 
 Training Gated NetVLAD (256 Clusters):
 
