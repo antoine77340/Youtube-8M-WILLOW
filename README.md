@@ -26,8 +26,6 @@ Our model were trained on all the training set and almost all the validation set
 
 Each model takes several days to train, so each command line are separated in order to be run in parallel if possible. 
 Please replace 'path_to_features' with the folder path which contains all the tensorflow record frame level feature.
-
-Please replace 'path_to_features' with the folder path which contains all the tensorflow record frame level feature.
 ```sh
 path_to_features='path_to_features'
 ```
