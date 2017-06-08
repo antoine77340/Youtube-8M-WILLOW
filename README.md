@@ -110,6 +110,6 @@ python final_averaging.py
 ```
 
 It will just take you the time to make a coffee and the submission file will be written in WILLOW_submission.csv 
-as soon as you finished to drink it :D.
+before you finish to drink it :D.
 
 Antoine Miech
