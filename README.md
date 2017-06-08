@@ -1,14 +1,14 @@
 # Youtube-8M-WILLOW
-This is the solution of the kaggle Youtube-8M Large-Scale Video Understanding challenge winners (https://www.kaggle.com/c/youtube8m).
+This is code of the kaggle Youtube-8M Large-Scale Video Understanding challenge winners (https://www.kaggle.com/c/youtube8m).
 For more details about our models,  please read our arXiv paper: ... .
 
-The code is built on top of the Google Youtube-8M starter code (https://github.com/google/youtube-8m)
+The code is built on top of the Google Youtube-8M starter code (https://github.com/google/youtube-8m).
 Please look at their README to see the needed dependencies to run the code (mainly Tensorflow 1.0).
 
 You will additionally only need to have the pandas python library installed.
 
-Hardware requirement: Each model can be run on a single NVIDIA TITAN X 12 GB GPU. Some of the trained
-do not fit with a GPU with at least 10GB of memory. In that case, please do not modify the training batch size 
+Hardware requirement: Each model have been run on a single NVIDIA TITAN X 12 GB GPU. Be aware that some of the models
+do not fit with a GPU with less than 9GB of memory. Please do not modify the training batch size 
 of these models as it might affect the final results.
 
 Our best submitted model (GAP: 0.84967% on the private leaderboard) is a weighted ensemble of 25 models.
@@ -17,14 +17,15 @@ However for the sake of simplicity, we present a much more simple ensemble of
 are only some very similar variant (of hyper-parameter) of these seven main models. 
 
 Please note that because of the time constraint, we did not have time to try to run the code from scratch.
-It might be possible, but rather unlikely, that something is not working properly. If so please contact me.
+It might be possible, but rather unlikely, that something is not working properly. If so please create an issue on
+github.
 
 ## Training the single models
 
 Each of the following command lines train a single model. They are scheduled to stop training at the good time.
 
 Our model were trained on all the training set and almost all the validation set. 
-We only discarded 21k videos for a smaller validatin set.
+We only discarded 21k videos to build a smaller validation set.
 This validation set (used in the arXiv paper) is composed of all the tensorflow record file of the form: 'validatea*.tfrecord'. 
 We will however, train the models on all both training and validation set as it was allowed in the kaggle competition. It should not make any huge difference.
 
