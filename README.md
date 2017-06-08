@@ -98,6 +98,8 @@ python inference.py --output_file=test-gatednetfvLF-128k-1024-80-0002-300iter-no
 python inference.py --output_file=test-GRU-0002-1200.csv --input_data_pattern='$path_to_features/test*.tfrecord' --model=GruModel --train_dir=GRU-0002-1200 --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=1024 --base_learning_rate=0.0002 --gru_cells=1200 --learning_rate_decay=0.9 --moe_l2=1e-6 --run_once=True --top_k=50
 
 python inference.py --output_file=test-gatednetvladLF-256k-1024-80-0002-300iter-norelu-basic-gatedmoe.csv --input_data_pattern='$path_to_features/test*.tfrecord' --model=NetVLADModelLF --train_dir=gatednetvladLF-256k-1024-80-0002-300iter-norelu-basic-gatedmoe --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=1024 --base_learning_rate=0.0002 --netvlad_cluster_size=256 --netvlad_hidden_size=1024 --moe_l2=1e-6 --iterations=300 --learning_rate_decay=0.8 --netvlad_relu=False --gating=True --moe_prob_gating=True --run_once=True  --top_k=50
+
+python inference.py --output_file=test-softdboflf-8000-1024-80-0002-300iter.csv --input_data_pattern='$path_to_features/test*.tfrecord'  --model=SoftDbofModelLF --train_dir=softdboflf-8000-1024-80-0002-300iter --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=256 --base_learning_rate=0.0002 --dbof_cluster_size=8000 --dbof_hidden_size=1024 --iterations=300 --dbof_relu=False --run_once=True --top_k=50
 ```
 
 ## Averaging the models
