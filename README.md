@@ -3,7 +3,7 @@ This is the solution of the kaggle Youtube-8M Large-Scale Video Understanding ch
 For more details about our models,  please read our arXiv paper: ... .
 
 The code is built on top of the Google Youtube-8M starter code (https://github.com/google/youtube-8m)
-Please look at their README to see the needed dependencies to run the code.
+Please look at their README to see the needed dependencies to run the code (mainly Tensorflow 1.0).
 
 You will additionally only need to have the pandas python library installed.
 
@@ -36,7 +36,7 @@ Training Gated NetVLAD (256 Clusters):
 python train.py --train_data_pattern='$path_to_features/*a*??.tfrecord' --model=NetVLADModelLF --train_dir=gatednetvladLF-256k-1024-80-0002-300iter-norelu-basic-gatedmoe --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=80 --base_learning_rate=0.0002 --netvlad_cluster_size=256 --netvlad_hidden_size=1024 --moe_l2=1e-6 --iterations=300 --learning_rate_decay=0.8 --netvlad_relu=False --gating=True --moe_prob_gating=True --max_step=700000
 ```
 
-Note: The best single model is this model but with flag --max_step=300000. We somehow need it to train longer for better effect on the ensemble.
+Note: The best single model is this one but with the flag --max_step=300000. We somehow need it to train longer for better effect on the ensemble.
 
 Training Gated NetFV (128 Clusters):
 
@@ -78,8 +78,8 @@ python train.py --train_data_pattern='$path_to_features/*a*??.tfrecord' --model=
 
 ## Inference
 
-We will write the predictions into 7 different files and then ensemble them.
-Run each one of this command to run inference for a each model.
+After training, we will write the predictions into 7 different files and then ensemble them.
+Run each one of this command to run inference for each model.
 
 ```sh
 python inference.py --output_file=test-lstm-0002-val-150-random.csv --input_data_pattern='$path_to_features/test*.tfrecord' --model=LstmModel --train_dir=lstm-0002-val-150-random --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=1024 --base_learning_rate=0.0002 --iterations=150 --lstm_random_sequence=True --run_once=True --top_k=50
@@ -97,7 +97,7 @@ python inference.py --output_file=test-gatednetvladLF-256k-1024-80-0002-300iter-
 
 ## Averaging the models
 
-After inference done for all the models just run:
+After inference done for all models just run:
 
 
 ```sh
