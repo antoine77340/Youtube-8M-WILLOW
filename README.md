@@ -22,6 +22,8 @@ It might be possible, but rather unlikely, that something is not working properl
 
 Each of the following command lines train a single model. They are scheduled to stop training at the good time.
 
+For the rest of the operations, please replace 'path_to_features' with the folder path which contains all the tensorflow record frame level feature.
+
 Training Gated NetVLAD (256 Clusters):
 
 ```sh
