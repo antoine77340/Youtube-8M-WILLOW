@@ -2,6 +2,8 @@
 This is code of the kaggle Youtube-8M Large-Scale Video Understanding challenge winners (https://www.kaggle.com/c/youtube8m).
 For more details about our models,  please read our arXiv paper: ... .
 
+This repo contains some code to reproduce a winning submission for the kaggle challenge. If you are just looking for an efficient Tensorflow implementation of NetVLAD, NetRVLAD, NetFV, Soft-DBoF and their gated version, please directly consult our Tensorflow toolbox (LOUPE): https://github.com/antoine77340/LOUPE. 
+
 The code is built on top of the Google Youtube-8M starter code (https://github.com/google/youtube-8m).
 Please look at their README to see the needed dependencies to run the code (mainly Tensorflow 1.0).
 
