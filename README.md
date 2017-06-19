@@ -2,7 +2,7 @@
 This is code of the kaggle Youtube-8M Large-Scale Video Understanding challenge winners (https://www.kaggle.com/c/youtube8m).
 For more details about our models,  please read our arXiv paper: ... .
 
-This repo contains some code to reproduce a winning submission for the kaggle challenge. If you are just looking for an efficient Tensorflow implementation of NetVLAD, NetRVLAD, NetFV, Soft-DBoF and their gated version, please directly consult our Tensorflow toolbox (LOUPE): https://github.com/antoine77340/LOUPE. 
+This repo contains some code to reproduce a winning submission for the kaggle challenge. If you are just looking for an efficient Tensorflow implementation of NetVLAD, NetRVLAD, NetFV, Soft-DBoW and their gated version, please directly consult our Tensorflow toolbox (LOUPE): https://github.com/antoine77340/LOUPE. 
 
 The code is built on top of the Google Youtube-8M starter code (https://github.com/google/youtube-8m).
 Please look at their README to see the needed dependencies to run the code (mainly Tensorflow 1.0).
@@ -52,13 +52,13 @@ Training Gated NetFV (128 Clusters):
 python train.py --train_data_pattern="$path_to_features/*a*??.tfrecord" --model=NetFVModelLF --train_dir=gatednetfvLF-128k-1024-80-0002-300iter-norelu-basic-gatedmoe --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=80 --base_learning_rate=0.0002 --fv_cluster_size=128 --fv_hidden_size=1024 --moe_l2=1e-6 --iterations=300 --learning_rate_decay=0.8 --fv_relu=False --gating=True --moe_prob_gating=True --fv_couple_weights=False --max_step=600000
 ```
 
-Training Gated Soft-Dbof (4096 Clusters):
+Training Gated Soft-DBoW (4096 Clusters):
 
 ```sh
 python train.py --train_data_pattern="$path_to_features/*a*??.tfrecord" --model=GatedDbofModelLF --train_dir=gateddboflf-4096-1024-80-0002-300iter --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=80 --base_learning_rate=0.0002 --dbof_cluster_size=4096 --dbof_hidden_size=1024 --moe_l2=1e-6 --iterations=300 --dbof_relu=False --max_step=1000000
 ```
 
-Training Soft-Dbof (8000 Clusters):
+Training Soft-DBoW (8000 Clusters):
 
 ```sh
 python train.py --train_data_pattern="$path_to_features/*a*??.tfrecord" --model=SoftDbofModelLF --train_dir=softdboflf-8000-1024-80-0002-300iter --frame_features=True --feature_names="rgb,audio" --feature_sizes="1024,128" --batch_size=80 --base_learning_rate=0.0002 --dbof_cluster_size=8000 --dbof_hidden_size=1024 --iterations=300 --dbof_relu=False --max_step=800000
