@@ -1,6 +1,6 @@
 # Youtube-8M-WILLOW
 This is code of the kaggle Youtube-8M Large-Scale Video Understanding challenge winners (https://www.kaggle.com/c/youtube8m).
-For more details about our models,  please read our arXiv paper: ... .
+For more details about our models,  please read our arXiv paper: https://arxiv.org/abs/1706.06905 .
 
 This repo contains some code to reproduce a winning submission for the kaggle challenge. If you are just looking for an efficient Tensorflow implementation of NetVLAD, NetRVLAD, NetFV, Soft-DBoW and their gated version, please directly consult our Tensorflow toolbox (LOUPE): https://github.com/antoine77340/LOUPE. 
 
