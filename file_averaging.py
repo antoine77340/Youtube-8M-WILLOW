@@ -61,5 +61,5 @@ model_pred = {'test-gatednetvladLF-256k-1024-80-0002-300iter-norelu-basic-gatedm
                   , 'test-lstm-0002-val-150-random': 1
                  }
 
-avg = read_models(model_weights1)
+avg = read_models(model_pred)
 write_models(avg, 'WILLOW_submission', sum(model_pred.values()))
