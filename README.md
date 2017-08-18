@@ -110,7 +110,7 @@ After inference done for all models just run:
 
 
 ```sh
-python final_averaging.py
+python file_averaging.py
 ```
 
 It will just take you the time to make a coffee and the submission file will be written in WILLOW_submission.csv 
