@@ -1,4 +1,9 @@
 # Youtube-8M-WILLOW
+
+NEW: I just released a pretrained model (Gated NetVLAD) as of 11th December 2017! 
+you can download the pretrained model here: https://www.rocq.inria.fr/cluster-willow/amiech/pretrainedmodel.zip
+the model is: gatednetvladLF-256k-1024-80-0002-300iter-norelu-basic-gatedmoe
+
 This is code of the kaggle Youtube-8M Large-Scale Video Understanding challenge winners (https://www.kaggle.com/c/youtube8m).
 For more details about our models,  please read our arXiv paper: https://arxiv.org/abs/1706.06905 .
 
@@ -44,7 +49,7 @@ python train.py --train_data_pattern="$path_to_features/*a*??.tfrecord" --model=
 ```
 
 Note: The best single model is this one but with the flag --max_step=300000. We somehow need it to train longer for better effect on the ensemble.
-
+G
 Training Gated NetFV (128 Clusters):
 
 
