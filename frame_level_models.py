@@ -99,7 +99,7 @@ flags.DEFINE_bool("fv_relu", True,
 flags.DEFINE_bool("fv_couple_weights", True,
                      "Coupling cluster weights or not")
  
-flags.DEFINE_integer("fv_coupling_factor", 0.01,
+flags.DEFINE_float("fv_coupling_factor", 0.01,
                      "Coupling factor")
 
 
