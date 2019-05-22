@@ -146,6 +146,9 @@ def inference(reader, train_dir, data_pattern, out_file_location, batch_size, to
         tf.GraphKeys.LOCAL_VARIABLES)))
 
     coord = tf.train.Coordinator()
+    runners_to_remove = [q_runner for q_runner in sess.graph.get_collection_ref("queue_runners") if q_runner.name == "train_input/input_producer" or q_runner.name == "train_input/shuffle_batch_join/random_shuffle_queue"]
+    for runner in runners_to_remove:
+        sess.graph.get_collection_ref("queue_runners").remove(runner)
     threads = tf.train.start_queue_runners(sess=sess, coord=coord)
     num_examples_processed = 0
     start_time = time.time()
