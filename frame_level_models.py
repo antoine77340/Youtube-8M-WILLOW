@@ -644,13 +644,13 @@ class NetVLADModelLF(models.BaseModel):
 
     if lightvlad:
       video_NetVLAD = LightVLAD(1024,max_frames,cluster_size, add_batch_norm, is_training)
-      audio_NetVLAD = LightVLAD(128,max_frames,cluster_size/2, add_batch_norm, is_training)
+      audio_NetVLAD = LightVLAD(128,max_frames,cluster_size//2, add_batch_norm, is_training)
     elif vlagd:
       video_NetVLAD = NetVLAGD(1024,max_frames,cluster_size, add_batch_norm, is_training)
-      audio_NetVLAD = NetVLAGD(128,max_frames,cluster_size/2, add_batch_norm, is_training)
+      audio_NetVLAD = NetVLAGD(128,max_frames,cluster_size//2, add_batch_norm, is_training)
     else:
       video_NetVLAD = NetVLAD(1024,max_frames,cluster_size, add_batch_norm, is_training)
-      audio_NetVLAD = NetVLAD(128,max_frames,cluster_size/2, add_batch_norm, is_training)
+      audio_NetVLAD = NetVLAD(128,max_frames,cluster_size//2, add_batch_norm, is_training)
 
   
     if add_batch_norm:# and not lightvlad:
